@@ -1,4 +1,4 @@
-"""Saves the data from csv files."""
+"""Saves the data from MNIST csv files."""
 
 
 import pandas as pd
@@ -13,6 +13,8 @@ class Image:
 
 
 def load_csv(path):
+    """Saves the data from a csv file."""
+
     data = pd.read_csv(path)
 
     images = []
@@ -34,9 +36,9 @@ if __name__ == "__main__":
     testing_data = load_csv("MNIST/csv/mnist_test.csv")
 
     # Save training data
-    with open("training_data.pkl", "wb") as f:
+    with open("src/training_data.pkl", "wb") as f:
         pickle.dump(training_data, f)
     # Save testing data
-    with open("testing_data.pkl", "wb") as f:
+    with open("src/testing_data.pkl", "wb") as f:
         pickle.dump(testing_data, f)
     

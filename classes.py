@@ -1,5 +1,9 @@
+"""All classes used in the network."""
+
+
 import numpy as np
 import random
+
 
 class Image:
     def __init__(self, label, values):

@@ -1,6 +1,4 @@
-"""
-Initializes the neural network and trains it.
-"""
+"""Initializes the neural network and trains it."""
 
 
 import pickle

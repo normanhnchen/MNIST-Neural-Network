@@ -1,3 +1,6 @@
+"""Converts MNIST ubyte files into csv files."""
+
+
 def convert(imgs, labels, outfile, n):
     imgf = open(imgs, "rb") # Read binary file
     labelf = open(labels, "rb") # Read binary file

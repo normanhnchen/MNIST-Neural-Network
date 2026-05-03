@@ -1,3 +1,6 @@
+"""Saves the data from csv files."""
+
+
 import pandas as pd
 import pickle
 import numpy as np

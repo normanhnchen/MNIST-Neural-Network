@@ -1,6 +1,4 @@
-"""
-
-"""
+"""Loads saved trained neural network and tests it."""
 
 
 import pickle

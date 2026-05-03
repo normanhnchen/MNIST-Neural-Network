@@ -25,3 +25,12 @@ I started this project as a stepping stone to my journey through the world of AI
 
  - Backpropogation intuition
  - Applied linear algebra and calculus in stochastic gradient descent
+
+## What I Learned
+
+ - The system of a basic neural network
+ - How neural networks "learn"
+ - Sigmoid neurons
+ - Backpropagation
+ - Stochastic gradient descent (and gradient descent)
+ - Converting data between and from ubyte and csv files

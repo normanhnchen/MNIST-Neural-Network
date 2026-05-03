@@ -15,7 +15,6 @@ with open("src/testing_data.pkl", "rb") as f:
 
 test_subset = testing_data[:10001]
 
-# Pass the objects directly to the fixed evaluate method
 res = network.evaluate(test_subset)
 
 print(f"Correct predictions: {res} out of {len(test_subset)}")

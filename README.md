@@ -14,7 +14,7 @@ Link: http://neuralnetworksanddeeplearning.com/
 
 1. Run `convert.py` to convert the MNIST ubtye files into `.csv` files.
 2. Run `training.py` to save the data of the `.csv` files in `testing_data.pkl` and `training_data.pkl`.
-3. Run `network.py` to train the neural network (or use the pretrained network).
+3. Run `network.py` to train the neural network (or use the pretrained network), and you can change its settings in the code.
 4. Run `network_results` to test the trained network and print its results.
 
 ## Personal Reflection

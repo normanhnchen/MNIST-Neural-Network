@@ -3,7 +3,7 @@
 
 import pickle
 
-from src.network import Network, Image
+from src.scratch.network import Network, Image
 
 
 # Load saved data

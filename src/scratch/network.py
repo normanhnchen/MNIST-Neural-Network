@@ -76,7 +76,8 @@ class Network:
     def train(self, training_data, epochs, batch_size, eta):
         """
         Train the network using stochastic gradient descent and
-        updating the weights and biases during the process."""
+        updating the weights and biases during the process.
+        """
 
         n = len(training_data)
         for epoch in range(epochs):
@@ -131,7 +132,7 @@ class Network:
 
         test_results = []
         for img in testing_data:
-            # Get the maximum number in the output (the AI's decision)
+            # Get the maximum number in the output (the neural network's decision)
             decision = np.argmax(self.feed_forward(img.values))
             test_results.append((decision, np.argmax(img.label)))
 
@@ -141,7 +142,7 @@ class Network:
 
 if __name__ == "__main__":
     # Load saved data
-    with open("src/training_data.pkl", "rb") as f:
+    with open("src/scratch/data/training_data.pkl", "rb") as f:
         training_data = pickle.load(f)
 
     eta = 3 # Learning rate
@@ -152,5 +153,5 @@ if __name__ == "__main__":
 
     network.train(training_data, epochs, batch_size, eta)
 
-    with open("src/trained_network.pkl", "wb") as f:
+    with open("src/scratch/data/trained_network.pkl", "wb") as f:
         pickle.dump(network, f)

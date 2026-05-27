@@ -4,12 +4,13 @@
 import pandas as pd
 import pickle
 import numpy as np
+import torch
 
 
 class Image:
     def __init__(self, label, values):
-        self.label = label
-        self.values = values
+        self.label = torch.tensor(label, dtype=torch.float32)
+        self.values = torch.tensor(values, dtype=torch.float32)
 
 
 def load_csv(path):
@@ -36,9 +37,8 @@ if __name__ == "__main__":
     testing_data = load_csv("MNIST/csv/mnist_test.csv")
 
     # Save training data
-    with open("src/training_data.pkl", "wb") as f:
+    with open("src/ai/data/training_data.pkl", "wb") as f:
         pickle.dump(training_data, f)
     # Save testing data
-    with open("src/testing_data.pkl", "wb") as f:
+    with open("src/ai/data/testing_data.pkl", "wb") as f:
         pickle.dump(testing_data, f)
-    

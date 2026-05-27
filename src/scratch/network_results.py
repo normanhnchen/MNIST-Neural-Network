@@ -7,9 +7,9 @@ from src.scratch.network import Network, Image
 
 
 # Load saved data
-with open("src/trained_network.pkl", "rb") as f:
+with open("src/scratch/data/trained_network.pkl", "rb") as f:
     network = pickle.load(f)
-with open("src/testing_data.pkl", "rb") as f:
+with open("src/scratch/data/testing_data.pkl", "rb") as f:
     testing_data = pickle.load(f)
 
 

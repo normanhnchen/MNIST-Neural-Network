@@ -1,16 +1,14 @@
 """Loads saved trained neural network and tests it."""
 
 
-import pickle
+import torch
 
 from src.ai.network import Network, Image
 
 
-# Load saved data
-with open("src/ai/data/trained_network.pkl", "rb") as f:
-    network = pickle.load(f)
-with open("src/ai/data/testing_data.pkl", "rb") as f:
-    testing_data = pickle.load(f)
+# Load trained network and testing data
+network = torch.load("data/ai/trained_network.pt", weights_only=False)
+testing_data = torch.load("data/ai/testing_data.pt", weights_only=False)
 
 
 test_subset = testing_data[:10001]

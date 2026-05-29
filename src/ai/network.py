@@ -1,6 +1,4 @@
-import pickle
 import random
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -113,17 +111,16 @@ class Network(nn.Module):
 if __name__ == "__main__":
     print(f"Using device: {DEVICE}")
 
-    with open("src/ai/data/training_data.pkl", "rb") as f:
-        training_data = pickle.load(f)
+    # Load training data
+    training_data = torch.load("data/ai/training_data.pt", weights_only=False)
 
-    eta = 3
+    eta = 3 # Learning rate
     epochs = 30
-    # 100 images per forward/backward step (fast, especially on GPU).
-    # Set to 1 if you want "one image per step" — same code path, shape (1, 784).
     batch_size = 100
 
     network = Network([784, 16, 10])
     network.SGD(training_data, epochs, batch_size, eta)
 
-    with open("src/ai/data/trained_network.pkl", "wb") as f:
-        pickle.dump(network, f)
+    torch.save(network, "data/ai/trained_network.pt")
+
+    print("Network trained and saved.")

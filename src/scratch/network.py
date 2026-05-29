@@ -1,7 +1,6 @@
 """Initializes the neural network and trains it."""
 
 
-import pickle
 import numpy as np
 import random
 
@@ -142,16 +141,16 @@ class Network:
 
 if __name__ == "__main__":
     # Load saved data
-    with open("src/scratch/data/training_data.pkl", "rb") as f:
-        training_data = pickle.load(f)
+    training_data = np.load("data/scratch/training_data.npy", allow_pickle=True)
 
     eta = 3 # Learning rate
-    epochs = 30
+    epochs = 10
     batch_size = 100
 
-    network = Network([784, 30, 10])
+    network = Network([784, 16, 10])
 
     network.train(training_data, epochs, batch_size, eta)
 
-    with open("src/scratch/data/trained_network.pkl", "wb") as f:
-        pickle.dump(network, f)
+    np.save("data/scratch/trained_network.npy", network)
+
+    print("Network trained and saved.")

@@ -1,17 +1,15 @@
 """Loads saved trained neural network and tests it."""
 
 
-import pickle
+import numpy as np
 
 from src.scratch.network import Network, Image
 
 
 # Load saved data
-with open("src/scratch/data/trained_network.pkl", "rb") as f:
-    network = pickle.load(f)
-with open("src/scratch/data/testing_data.pkl", "rb") as f:
-    testing_data = pickle.load(f)
-
+# .item() to convert from 0-d array to object
+network = np.load("data/scratch/trained_network.npy", allow_pickle=True).item()
+testing_data = np.load("data/scratch/testing_data.npy", allow_pickle=True)
 
 test_subset = testing_data[:10001]
 

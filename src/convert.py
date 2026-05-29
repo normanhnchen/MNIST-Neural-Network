@@ -31,10 +31,13 @@ def convert(imgs, labels, outfile, n):
     labelf.close()
     csvf.close()
 
-mnist_train_x = "MNIST/raw/train-images-idx3-ubyte"
-mnist_train_y = "MNIST/raw/train-labels-idx1-ubyte"
-mnist_test_x = "MNIST/raw/t10k-images-idx3-ubyte"
-mnist_test_y = "MNIST/raw/t10k-labels-idx1-ubyte"
 
-convert(mnist_train_x, mnist_train_y, "MNIST/csv/mnist_train.csv", 60000)
-convert(mnist_test_x, mnist_test_y, "MNIST/csv/mnist_test.csv", 10000)
+mnist_train_x = "data/MNIST/raw/train-images-idx3-ubyte"
+mnist_train_y = "data/MNIST/raw/train-labels-idx1-ubyte"
+mnist_test_x = "data/MNIST/raw/t10k-images-idx3-ubyte"
+mnist_test_y = "data/MNIST/raw/t10k-labels-idx1-ubyte"
+
+convert(mnist_train_x, mnist_train_y, "data/MNIST/csv/mnist_train.csv", 60000)
+convert(mnist_test_x, mnist_test_y, "data/MNIST/csv/mnist_test.csv", 10000)
+
+print("Conversion from ubyte to csv files complete.")

@@ -1,6 +1,4 @@
-import pickle
 import random
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -113,8 +111,7 @@ class Network(nn.Module):
 if __name__ == "__main__":
     print(f"Using device: {DEVICE}")
 
-    with open("src/ai/data/training_data.pkl", "rb") as f:
-        training_data = pickle.load(f)
+    training_data = torch.load("data/ai/training_data.pt", weights_only=False)
 
     eta = 3
     epochs = 30
@@ -125,5 +122,6 @@ if __name__ == "__main__":
     network = Network([784, 16, 10])
     network.SGD(training_data, epochs, batch_size, eta)
 
-    with open("src/ai/data/trained_network.pkl", "wb") as f:
-        pickle.dump(network, f)
+    torch.save(network, "data/ai/trained_network.pt")
+
+    print("Network trained and saved.")

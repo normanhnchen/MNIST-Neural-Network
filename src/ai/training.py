@@ -2,7 +2,6 @@
 
 
 import pandas as pd
-import pickle
 import numpy as np
 import torch
 
@@ -33,12 +32,10 @@ def load_csv(path):
 
 
 if __name__ == "__main__":
-    training_data = load_csv("MNIST/csv/mnist_train.csv")
-    testing_data = load_csv("MNIST/csv/mnist_test.csv")
+    training_data = load_csv("data/MNIST/csv/mnist_train.csv")
+    testing_data = load_csv("data/MNIST/csv/mnist_test.csv")
 
-    # Save training data
-    with open("src/ai/data/training_data.pkl", "wb") as f:
-        pickle.dump(training_data, f)
-    # Save testing data
-    with open("src/ai/data/testing_data.pkl", "wb") as f:
-        pickle.dump(testing_data, f)
+    torch.save(training_data, "data/ai/training_data.pt")
+    torch.save(testing_data, "data/ai/testing_data.pt")
+
+    print("Training and testing data saved.")

@@ -2,11 +2,12 @@
 
 
 import torch
+import torch
 
 from src.ai.network import Network, Image
 
 
-# Load trained network and testing data
+# Load saved data
 network = torch.load("data/ai/trained_network.pt", weights_only=False)
 testing_data = torch.load("data/ai/testing_data.pt", weights_only=False)
 

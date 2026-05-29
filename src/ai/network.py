@@ -111,7 +111,7 @@ class Network(nn.Module):
 if __name__ == "__main__":
     print(f"Using device: {DEVICE}")
 
-    # Load training data
+    # Load saved data
     training_data = torch.load("data/ai/training_data.pt", weights_only=False)
 
     eta = 3 # Learning rate
@@ -121,6 +121,9 @@ if __name__ == "__main__":
     network = Network([784, 16, 10])
     network.SGD(training_data, epochs, batch_size, eta)
 
+    torch.save(network, "data/ai/trained_network.pt")
+
+    print("Network trained and saved.")
     torch.save(network, "data/ai/trained_network.pt")
 
     print("Network trained and saved.")

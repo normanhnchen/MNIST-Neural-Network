@@ -32,10 +32,14 @@ def load_csv(path):
 
 
 if __name__ == "__main__":
-    # 
-    training_data = load_csv("data/MNIST/csv/mnist_train.csv")
-    testing_data = load_csv("data/MNIST/csv/mnist_test.csv")
+    # Load saved data
+    training_data = load_csv("MNIST/csv/mnist_train.csv")
+    testing_data = load_csv("MNIST/csv/mnist_test.csv")
 
+    torch.save(training_data, "data/ai/training_data.pt")
+    torch.save(testing_data, "data/ai/testing_data.pt")
+
+    print("Training and testing data saved.")
     torch.save(training_data, "data/ai/training_data.pt")
     torch.save(testing_data, "data/ai/testing_data.pt")
 

@@ -27,6 +27,7 @@ def load_csv(path):
 
 
 if __name__ == "__main__":
+    # Load saved data
     training_data = load_csv("data/MNIST/csv/mnist_train.csv")
     testing_data = load_csv("data/MNIST/csv/mnist_test.csv")
 

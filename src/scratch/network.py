@@ -3,6 +3,7 @@
 
 import numpy as np
 import random
+import time
 
 
 class Image:
@@ -144,12 +145,15 @@ if __name__ == "__main__":
     training_data = np.load("data/scratch/training_data.npy", allow_pickle=True)
 
     eta = 3 # Learning rate
-    epochs = 10
+    epochs = 30
     batch_size = 100
 
-    network = Network([784, 16, 10])
+    network = Network([784, 32, 32, 10])
 
+    time_start = time.perf_counter()
     network.train(training_data, epochs, batch_size, eta)
+    time_end = time.perf_counter()
+    print(f"Time taken to train the network: {time_end - time_start} seconds")
 
     np.save("data/scratch/trained_network.npy", network)
 

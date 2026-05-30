@@ -34,3 +34,19 @@ I started this project as a stepping stone to my journey through the world of AI
  - Backpropagation
  - Stochastic gradient descent (and gradient descent)
  - Converting data between and from ubyte and csv files
+
+## Example Networks
+
+Settings:
+- Layers: [784, 32, 32, 10]
+- Learning rate: 3
+- Epochs: 30
+- Batch size: 100
+
+### Neural network from scratch
+
+Time taken to train the network: 264.65 sconds
+
+### Neural network using PyTorch
+
+Time taken to train the network: 95.30 seconds

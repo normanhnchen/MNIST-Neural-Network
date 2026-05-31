@@ -37,16 +37,28 @@ I started this project as a stepping stone to my journey through the world of AI
 
 ## Example Networks
 
+### Neural network from scratch
+
 Settings:
 - Layers: [784, 32, 32, 10]
 - Learning rate: 3
 - Epochs: 30
 - Batch size: 100
 
-### Neural network from scratch
+Time taken to train the network: 197.93 seconds
 
-Time taken to train the network: 264.65 sconds
+Correct predictions: 9421 out of 9999
+Accuracy: 94.22%
 
 ### Neural network using PyTorch
 
-Time taken to train the network: 95.30 seconds
+Settings:
+- Layers: [784, 256, 256, 10]
+- Learning rate: 3
+- Epochs: 50
+- Batch size: 100
+
+Time taken to train the network: 32.07 seconds
+
+Correct predictions: 9832 out of 9999
+Accuracy: 98.33%

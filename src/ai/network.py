@@ -11,7 +11,6 @@ from src.ai.training import Image
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-
 class Network(nn.Module):
     def __init__(self, sizes):
         super().__init__()

@@ -2,14 +2,9 @@
 
 
 import pandas as pd
-import pickle
 import numpy as np
 
-
-class Image:
-    def __init__(self, label, values):
-        self.label = label
-        self.values = values
+from src.scratch.network import Image
 
 
 def load_csv(path):
@@ -32,13 +27,11 @@ def load_csv(path):
 
 
 if __name__ == "__main__":
-    training_data = load_csv("MNIST/csv/mnist_train.csv")
-    testing_data = load_csv("MNIST/csv/mnist_test.csv")
+    # Load saved data
+    training_data = load_csv("data/MNIST/csv/mnist_train.csv")
+    testing_data = load_csv("data/MNIST/csv/mnist_test.csv")
 
-    # Save training data
-    with open("src/training_data.pkl", "wb") as f:
-        pickle.dump(training_data, f)
-    # Save testing data
-    with open("src/testing_data.pkl", "wb") as f:
-        pickle.dump(testing_data, f)
-    
+    np.save("data/scratch/training_data.npy", training_data)
+    np.save("data/scratch/testing_data.npy", testing_data)
+
+    print("Training and testing data saved.")

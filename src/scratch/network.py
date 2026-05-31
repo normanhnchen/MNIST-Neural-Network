@@ -1,9 +1,9 @@
 """Initializes the neural network and trains it."""
 
 
-import pickle
 import numpy as np
 import random
+import time
 
 
 class Image:
@@ -76,7 +76,8 @@ class Network:
     def train(self, training_data, epochs, batch_size, eta):
         """
         Train the network using stochastic gradient descent and
-        updating the weights and biases during the process."""
+        updating the weights and biases during the process.
+        """
 
         n = len(training_data)
         for epoch in range(epochs):
@@ -131,7 +132,7 @@ class Network:
 
         test_results = []
         for img in testing_data:
-            # Get the maximum number in the output (the AI's decision)
+            # Get the maximum number in the output (the neural network's decision)
             decision = np.argmax(self.feed_forward(img.values))
             test_results.append((decision, np.argmax(img.label)))
 
@@ -141,16 +142,19 @@ class Network:
 
 if __name__ == "__main__":
     # Load saved data
-    with open("src/training_data.pkl", "rb") as f:
-        training_data = pickle.load(f)
+    training_data = np.load("data/scratch/training_data.npy", allow_pickle=True)
 
     eta = 3 # Learning rate
     epochs = 30
     batch_size = 100
 
-    network = Network([784, 30, 10])
+    network = Network([784, 32, 32, 10])
 
+    time_start = time.perf_counter()
     network.train(training_data, epochs, batch_size, eta)
+    time_end = time.perf_counter()
+    print(f"Time taken to train the network: {time_end - time_start} seconds")
 
-    with open("src/trained_network.pkl", "wb") as f:
-        pickle.dump(network, f)
+    np.save("data/scratch/trained_network.npy", network)
+
+    print("Network trained and saved.")
